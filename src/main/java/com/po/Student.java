@@ -1,6 +1,8 @@
 package com.po;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Student implements Serializable {
@@ -84,10 +86,12 @@ public class Student implements Serializable {
     }
 
     public String getSdate() {
+        sdate = new SimpleDateFormat("yyyy-MM-dd").format(birthday);
         return sdate;
     }
 
-    public void setSdate(String sdate) {
+    public void setSdate(String sdate) throws ParseException {
+        birthday=new SimpleDateFormat("yyyy-MM-dd").parse(sdate);
         this.sdate = sdate;
     }
 
